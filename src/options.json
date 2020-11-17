@@ -1,0 +1,18 @@
+{
+  "additionalProperties": true,
+  "type": "object",
+  "properties": {
+    "processFunction": {
+      "description": "A function that returns a sharp object.",
+      "instanceof": "Function"
+    },
+    "toBuffer": {
+      "description": "Whether to output as buffer. Default to true.",
+      "type": "boolean"
+    },
+    "fileLoaderOptions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
