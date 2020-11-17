@@ -28,7 +28,7 @@ yarn add webpack-sharp-loader --dev
 
 This loader outputs a raw image file by default. `"file-loader"` or another loader capable of handling image files should be place before this loader (_before_ since webpack loaders are run from the last one to the first).
 
-If you only want to process some but not all images, or to process some images differently, check out [webpack-query-loader](https://github.com/CoolCyberBrain/webpack-query-loader) or use webpack's `resourceQuery`.
+If you only want to process some but not all images, or to process some images differently, check out [webpack-query-loader](https://github.com/Calvin-LL/webpack-query-loader) or use webpack's `resourceQuery`.
 
 #### webpack.config.js
 
