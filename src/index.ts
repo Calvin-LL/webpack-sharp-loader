@@ -12,7 +12,7 @@ import schema from "./options.json";
 export interface OPTIONS {
   processFunction: (sharp: sharp.Sharp) => sharp.Sharp;
   toBuffer?: boolean;
-  fileLoaderOptions?: object;
+  fileLoaderOptions?: Record<string, unknown>;
 }
 
 export const raw = true;
@@ -21,9 +21,10 @@ export default function (
   this: loader.LoaderContext,
   content: ArrayBuffer,
   sourceMap?: RawSourceMap
-) {
+): void {
   const callback = this.async();
-  const options = loaderUtils.getOptions(this) as Readonly<OPTIONS> | {};
+  const options =
+    ((loaderUtils.getOptions(this) as unknown) as Readonly<OPTIONS>) ?? {};
   const optionsWithDefaults = {
     toBuffer: true,
     ...options,
