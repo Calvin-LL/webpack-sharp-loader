@@ -48,7 +48,7 @@ describe.each([4, 5] as const)("v%d validate options", (webpackVersion) => {
           const errors = stats!.compilation.errors;
 
           expect(errors).toHaveLength(1);
-          expect(errors).toMatchSnapshot();
+          expect(errors[0].error.message).toMatchSnapshot();
         }
       }
     }, 60000);
