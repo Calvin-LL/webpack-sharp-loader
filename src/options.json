@@ -1,6 +1,7 @@
 {
   "additionalProperties": true,
   "type": "object",
+  "required": ["processFunction"],
   "properties": {
     "processFunction": {
       "description": "A function that returns a sharp object.",

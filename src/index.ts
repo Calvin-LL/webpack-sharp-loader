@@ -9,11 +9,13 @@ import { loader } from "webpack";
 
 import schema from "./options.json";
 
-export interface OPTIONS {
-  processFunction: (sharp: sharp.Sharp) => sharp.Sharp;
-  toBuffer?: boolean;
-  fileLoaderOptions?: Record<string, unknown>;
+export interface Options {
+  readonly processFunction: (sharp: sharp.Sharp) => sharp.Sharp;
+  readonly toBuffer?: boolean;
+  readonly fileLoaderOptions?: Record<string, unknown>;
 }
+
+export type FullOptions = Options & Required<Pick<Options, "toBuffer">>;
 
 export const raw = true;
 
@@ -22,33 +24,30 @@ export default function (
   content: ArrayBuffer,
   sourceMap?: RawSourceMap
 ): void {
-  const callback = this.async();
-  const options =
-    ((loaderUtils.getOptions(this) as unknown) as Readonly<OPTIONS>) ?? {};
-  const optionsWithDefaults = {
+  const callback = this.async() as loader.loaderCallback;
+  const defaultOptions = {
     toBuffer: true,
-    ...options,
+  } as FullOptions;
+  const options: FullOptions = {
+    ...defaultOptions,
+    ...loaderUtils.getOptions(this),
   };
 
-  if (!("processFunction" in optionsWithDefaults)) {
-    throw new Error("Sharp Loader requires `processFunction` option to work");
-  }
-
-  validate(schema as Schema, optionsWithDefaults, {
+  validate(schema as Schema, options, {
     name: "Sharp Loader",
     baseDataPath: "options",
   });
 
-  optionsWithDefaults
+  options
     .processFunction(sharp(Buffer.from(content)))
     .toBuffer({ resolveWithObject: true })
     .then(({ data, info }) => {
-      if (optionsWithDefaults.toBuffer) return callback?.(null, data);
+      if (options.toBuffer) return callback?.(null, data);
 
       const fileLoaderContext = {
         ...this,
         resourcePath: replaceExt(this.resourcePath, `.${info.format}`),
-        query: optionsWithDefaults.fileLoaderOptions,
+        query: options.fileLoaderOptions,
       };
       const fileLoaderResult = fileLoader.call(
         fileLoaderContext,
