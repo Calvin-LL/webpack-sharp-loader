@@ -42,7 +42,7 @@ export default function (
     .processFunction(sharp(Buffer.from(content)))
     .toBuffer({ resolveWithObject: true })
     .then(({ data, info }) => {
-      if (options.toBuffer) return callback?.(null, data);
+      if (options.toBuffer) return callback(null, data);
 
       const fileLoaderContext = {
         ...this,
@@ -55,7 +55,7 @@ export default function (
         sourceMap
       );
 
-      return callback?.(null, fileLoaderResult);
+      return callback(null, fileLoaderResult);
     })
     .catch((e) => {
       throw e;
