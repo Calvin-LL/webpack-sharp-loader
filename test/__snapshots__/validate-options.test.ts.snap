@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`v4 validate options should throw an error on the "fileLoaderOptions" option with 1 value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from /Users/Calvin/GitHub/webpack-sharp-loader/test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.fileLoaderOptions should be an object:
+   object { … }
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v4 validate options should throw an error on the "processFunction" option with true value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from /Users/Calvin/GitHub/webpack-sharp-loader/test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.processFunction should be an instance of function.
+   -> A function that returns a sharp object.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v4 validate options should throw an error on the "processFunction" option with undefined value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from /Users/Calvin/GitHub/webpack-sharp-loader/test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options misses the property 'processFunction'. Should be:
+   function
+   -> A function that returns a sharp object.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v4 validate options should throw an error on the "processFunction" option with undefined value 2`] = `
+Array [
+  [ModuleBuildError: Module build failed (from /Users/Calvin/GitHub/webpack-sharp-loader/test-dist/cjs.js):
+Error: processFunction must return a sharp object
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:49:11)],
+]
+`;
+
+exports[`v4 validate options should throw an error on the "toBuffer" option with 1 value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from /Users/Calvin/GitHub/webpack-sharp-loader/test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.toBuffer should be a boolean.
+   -> Whether to output as buffer. Default to true.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v5 validate options should throw an error on the "fileLoaderOptions" option with 1 value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from ../../test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.fileLoaderOptions should be an object:
+   object { … }
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v5 validate options should throw an error on the "processFunction" option with true value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from ../../test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.processFunction should be an instance of function.
+   -> A function that returns a sharp object.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v5 validate options should throw an error on the "processFunction" option with undefined value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from ../../test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options misses the property 'processFunction'. Should be:
+   function
+   -> A function that returns a sharp object.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;
+
+exports[`v5 validate options should throw an error on the "processFunction" option with undefined value 2`] = `
+Array [
+  [ModuleBuildError: Module build failed (from ../../test-dist/cjs.js):
+Error: processFunction must return a sharp object
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:49:11)],
+]
+`;
+
+exports[`v5 validate options should throw an error on the "toBuffer" option with 1 value 1`] = `
+Array [
+  [ModuleBuildError: Module build failed (from ../../test-dist/cjs.js):
+ValidationError: Invalid options object. Sharp Loader has been initialized using an options object that does not match the API schema.
+ - options.toBuffer should be a boolean.
+   -> Whether to output as buffer. Default to true.
+    at Object.validate (/Users/Calvin/GitHub/webpack-sharp-loader/node_modules/schema-utils/dist/validate.js:104:11)
+    at Object.default_1 (/Users/Calvin/GitHub/webpack-sharp-loader/src/index.ts:36:3)],
+]
+`;

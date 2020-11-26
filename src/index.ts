@@ -38,8 +38,17 @@ export default function (
     baseDataPath: "options",
   });
 
-  options
-    .processFunction(sharp(Buffer.from(content)))
+  const returnedSharpObject = options.processFunction(
+    sharp(Buffer.from(content))
+  ) as sharp.Sharp | undefined;
+
+  if (
+    !returnedSharpObject ||
+    typeof returnedSharpObject.toBuffer !== "function"
+  )
+    throw new Error("processFunction must return a sharp object");
+
+  returnedSharpObject
     .toBuffer({ resolveWithObject: true })
     .then(({ data, info }) => {
       if (options.toBuffer) return callback(null, data);
