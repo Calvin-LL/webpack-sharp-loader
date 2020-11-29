@@ -10,33 +10,40 @@ According to [sharp](https://sharp.pixelplumbing.com/):
 >
 > Output images can be in JPEG, PNG, WebP and TIFF formats as well as uncompressed raw pixel data.
 
+## Examples
+
+[React](https://github.com/Calvin-LL/webpack-sharp-loader/tree/master/examples/react)
+
+[Vue](https://github.com/Calvin-LL/webpack-sharp-loader/tree/master/examples/vue)
+
 ## Install
 
 Install with npm:
 
 ```bash
-npm install webpack-sharp-loader --save-dev
+npm install --save-dev webpack-sharp-loader
 ```
 
 Install with yarn:
 
 ```bash
-yarn add webpack-sharp-loader --dev
+yarn add --dev webpack-sharp-loader
 ```
 
 ## Usage
 
 This loader outputs a raw image file by default. `"file-loader"` or another loader capable of handling image files should be place before this loader (_before_ since webpack loaders are run from the last one to the first).
 
-If you only want to process some but not all images, or to process some images differently, check out [webpack-query-loader](https://github.com/Calvin-LL/webpack-query-loader) or use webpack's `resourceQuery`.
+If you only want to process some but not all images use webpack's `oneOf` (like in the [examples](#examples)).
 
 #### webpack.config.js
 
 ```javascript
 module.exports = {
-  ...
+  // ...
   module: {
     rules: [
+      // ...
       {
         test: /\.(png|jpe?g|webp|tiff?)/i,
         use: [
@@ -44,7 +51,7 @@ module.exports = {
           {
             loader: "webpack-sharp-loader",
             options: {
-              processFunction: (sharp) => sharp.flip(),
+              processFunction: (sharp) => sharp.negate(),
             },
           },
         ],
@@ -52,7 +59,6 @@ module.exports = {
     ],
   },
 };
-
 ```
 
 ##### Or if you want to change the file format
@@ -71,7 +77,7 @@ module.exports = {
             loader: "webpack-sharp-loader",
             options: {
               toBuffer: false,
-              processFunction: (sharp) => sharp.flip().webp(),
+              processFunction: (sharp) => sharp.negate().webp(),
               // optional options passed to internal file-loader
               fileLoaderOptions: {
                 name: "[name]-[contenthash].[ext]"
