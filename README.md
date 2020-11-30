@@ -12,9 +12,9 @@ According to [sharp](https://sharp.pixelplumbing.com/):
 
 ## Examples
 
-[React](https://github.com/Calvin-LL/webpack-sharp-loader/tree/master/examples/react)
+[React](https://github.com/Calvin-LL/webpack-sharp-loader/tree/main/examples/react)
 
-[Vue](https://github.com/Calvin-LL/webpack-sharp-loader/tree/master/examples/vue)
+[Vue](https://github.com/Calvin-LL/webpack-sharp-loader/tree/main/examples/vue)
 
 ## Install
 
