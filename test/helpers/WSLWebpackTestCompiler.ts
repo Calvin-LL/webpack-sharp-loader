@@ -1,19 +1,19 @@
 import path from "path";
 
 import {
-  CompileOptions,
   WebpackTestBundle,
   WebpackTestCompiler,
 } from "@calvin-l/webpack-loader-test-util";
 
-interface WSLCompileOptions extends Omit<CompileOptions, "entryFilePath"> {
+interface WSLCompileOptions
+  extends Omit<WebpackTestCompiler.CompileOptions, "entryFilePath"> {
   entryFileName?: string;
   loaderOptions?: any;
   useFileLoader?: boolean;
 }
 
-export default class WSLWebpackTestCompiler extends WebpackTestCompiler {
-  compile(options: WSLCompileOptions = {}): Promise<WebpackTestBundle> {
+export default class WSLWebpackTestCompiler extends WebpackTestCompiler.default {
+  compile(options: WSLCompileOptions = {}): Promise<WebpackTestBundle.default> {
     const {
       loaderOptions = {},
       entryFileName = "index.js",

@@ -28,18 +28,18 @@ describe.each([4, 5] as const)(
       const compiler = new WSLWebpackTestCompiler({ webpackVersion });
       const bundle = await compiler.compile({
         loaderOptions: {
-          processFunction: (sharp: Sharp) => sharp.flip().webp(),
+          processFunction: (sharp: Sharp) => sharp.flip().png(),
           toBuffer: false,
-          fileLoaderOptions: { name: "[name].[ext]" },
+          fileLoaderOptions: { name: "[name].png" },
         },
         useFileLoader: false,
       });
 
       expect(
-        await bundle.readAssetAsPNG("Macaca_nigra_self-portrait_large.webp")
+        await bundle.readAssetAsPNG("Macaca_nigra_self-portrait_large.png")
       ).toMatchImageSnapshot({
         customDiffConfig: { threshold: 0 },
-        customSnapshotIdentifier: "image-flipped-webp",
+        customSnapshotIdentifier: "image-flipped-png",
       });
     });
   }
