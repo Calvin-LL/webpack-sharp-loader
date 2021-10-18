@@ -1,6 +1,6 @@
 {
   "name": "webpack-sharp-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Webpack loader to process images through sharp",
   "keywords": [
     "webpack",
